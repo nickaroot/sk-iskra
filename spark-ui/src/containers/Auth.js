@@ -25,7 +25,7 @@ export default class Auth extends React.Component {
   }
 
   handleClick = () => {
-    this.props.history.push('/');
+    this.props.history.push(`/user/${this.state.id}`);
   }
 
   render() {
