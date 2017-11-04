@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
 import { setChanges } from '../../actions/cardsActions';
+import Accordion from '../accordion/Accordion';
 
 class Personal extends React.Component {
   static propTypes = {
@@ -30,10 +31,21 @@ class Personal extends React.Component {
   }
 
   render() {
+
+      // onClick={this.props.onItemClick}
+      // id={item.id}
+      // title={item.title}
+      // opened={this.state.openedId === item.id}
+
+    let data = [
+      { id: 'id1', title: 'title 1', children: 'children1' },
+      { id: 'id2', title: 'title 2', children: 'children2' }
+    ];
+    
     return (
-      <div>
-        {this.renderAccordion()}
-      </div>
+      <Accordion data={data} />
+      //   {this.renderAccordion()}
+      // </div>
     );
   }
 }

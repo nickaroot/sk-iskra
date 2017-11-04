@@ -49,7 +49,7 @@ export function setChanges(data) {
       'http://bb-mobile.ru/temp_programmer/set_changes.php',
       data
     )
-      .then((response) => {
+      .then(() => {
         dispatch({
           type: SET_CHANGES_FINISHED
         });
