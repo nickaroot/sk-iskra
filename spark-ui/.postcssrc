@@ -1,0 +1,11 @@
+{
+  plugins: {
+    autoprefixer: {},
+    precss: {},
+    postcss-css-variables: {},
+    postcss-hexrgba: {},
+    postcss-nested: {},
+    postcss-nesting: {},
+    postcss-calc: {}
+  }
+}
