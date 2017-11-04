@@ -11,10 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.5",
+    "material-ui": "^0.19.4",
     "prop-types": "^15.5.10",
     "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "react-toolbox": "^2.0.0-beta.12"
+    "react-dom": "15.6.1"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",
