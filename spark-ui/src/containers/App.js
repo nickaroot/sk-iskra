@@ -40,9 +40,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
-    deviceId: state.app.deviceId
   };
 };
 
