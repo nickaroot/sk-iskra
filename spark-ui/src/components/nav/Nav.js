@@ -8,10 +8,10 @@ export default class Nav extends React.Component {
     return (
       <Tabs>
         <Tab label="Браслет" >
-          <Personal />
+          <Device />
         </Tab>
         <Tab label="Пациент" >
-          <Device />
+          <Personal />
         </Tab>
       </Tabs>
     );
