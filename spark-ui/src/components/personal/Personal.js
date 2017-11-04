@@ -16,26 +16,31 @@ class Personal extends React.Component {
   componentWillMount() {
   }
 
-  render() {
+  renderAccordion() {
     const { cards } = this.props;
+    let fields = [];
+    for (let key in cards) {
+      let data = cards[key];
+      fields.push(
+        <div key={'id-'+key}>{data.name}</div>
+      );
+    }
 
+    return fields
+  }
+
+  render() {
     return (
-      <div>Personal
-        {
-          Object.keys(cards).forEach((key) => {
-            const obj = cards[key];
-            return obj;
-          })
-      }
+      <div>
+        {this.renderAccordion()}
       </div>
-
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.cards
+    cards: state.cards.data
   };
 };
 

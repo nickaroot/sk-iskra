@@ -51,8 +51,7 @@ export function setChanges(data) {
     )
       .then((response) => {
         dispatch({
-          type: SET_CHANGES_FINISHED,
-          data: response.data
+          type: SET_CHANGES_FINISHED
         });
       })
       .catch((error) => {
