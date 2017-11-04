@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.scss';
 
 /* eslint-disable jsx-a11y/alt-text */
-export default class Header extends React.Component {
+export default class Field extends React.Component {
   render() {
     return (
       <div className={styles.header}>

@@ -18,7 +18,7 @@ export default class Root extends React.Component {
         <MuiThemeProvider>
           <Router>
             <div>
-              <Route exact path="/" component={App} />
+              <Route path="/user/:id" component={App} />
               <Route path="/auth" component={Auth} />
             </div>
           </Router>

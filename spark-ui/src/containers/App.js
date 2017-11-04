@@ -1,22 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { bindActionCreators } from 'redux';
 import Header from '../components/header/Header';
 import Nav from '../components/nav/Nav';
+import { getCards } from '../actions/cardsActions';
 
 class App extends React.Component {
   static propTypes = {
-    deviceId: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string
+      })
+    }),
     history: PropTypes.shape({
       push: PropTypes.func
+    }),
+    actions: PropTypes.shape({
+      getCards: PropTypes.func
     })
   }
 
   componentWillMount() {
-    if (!this.props.deviceId) {
+    const id = this.props.match.params.id;
+    if (!id) {
       this.props.history.push('/auth');
     }
+
+    this.props.actions.getCards(id);
   }
 
   render() {
@@ -29,16 +40,17 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     deviceId: state.app.deviceId
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    actions: {
-    }
+    actions: bindActionCreators({
+      getCards
+    }, dispatch)
   };
 };
 
