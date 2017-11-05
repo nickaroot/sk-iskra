@@ -9,6 +9,9 @@ import { bindActionCreators } from 'redux';
 /* eslint-disable jsx-a11y/alt-text */
 export class Field extends React.Component {
   handleCheck = (evt, isChecked) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    
     this.props.onChecked && this.props.onChecked(isChecked, {
       sectionId: this.props.sectionId,
       fieldId: this.props.fieldId
