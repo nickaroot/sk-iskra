@@ -7,10 +7,10 @@ export default class Nav extends React.Component {
   render() {
     return (
       <Tabs>
-        <Tab label="Браслет" >
+        <Tab label="Браслет" style={{"backgroundColor": "#0070c0"}}>
           <Device />
         </Tab>
-        <Tab label="Пациент" >
+        <Tab label="Пациент" style={{"backgroundColor": "#0070c0"}}>
           <Personal />
         </Tab>
       </Tabs>
