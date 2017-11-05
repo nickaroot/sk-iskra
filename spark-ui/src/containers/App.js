@@ -30,6 +30,16 @@ class App extends React.Component {
     this.props.actions.getCards(id);
   }
 
+  componentDidMount() {
+    this.updateInterval = setInterval(() => {
+      this.props.actions.getCards('1');   
+    }, 1000);
+  }
+
+  componentWillMount() {
+    clearInterval(this.updateInterval);
+  }
+
   render() {
     return (
       <div>
