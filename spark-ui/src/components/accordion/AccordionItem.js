@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './accordionItem.scss';
 
 export default class AccordionItem extends React.Component {
   handleClick = () => {
@@ -7,11 +8,11 @@ export default class AccordionItem extends React.Component {
 
   render() {
     return (
-      <div onClick={this.handleClick}>
-        <div>
+      <div className={styles.item} onClick={this.handleClick}>
+        <div className={styles.itemTitle}>
           {this.props.title}
         </div>
-        {this.props.opened && <div>{this.props.id}</div>}
+        {this.props.opened && <div>{this.props.children}</div>}
       </div>
     );
     

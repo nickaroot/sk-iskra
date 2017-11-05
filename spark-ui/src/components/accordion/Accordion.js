@@ -27,7 +27,9 @@ export default class Accordion extends React.Component {
               id={item.id}
               title={item.title}
               opened={this.state.openedId === item.id}
-            />
+            >
+              {item.children}
+            </AccordionItem>
           )
         })}
       </div>
