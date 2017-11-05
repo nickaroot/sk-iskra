@@ -63,6 +63,10 @@
 	}
 }
 
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
 .sidebar-right {
 	box-ordinal-group: 4;
 	order: 3;
@@ -79,6 +83,7 @@
 			font-size: 4em;
 			line-height: 1.4em;
 			color: #0070c0;
+			animation: blinker 1s linear infinite;
 		}
 	}
 }
