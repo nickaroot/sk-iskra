@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 
 import { setChanges } from '../../actions/cardsActions';
 import Accordion from '../accordion/Accordion';
+import Field from '../field/Field';
+import styles from './styles.scss';
 
 class Personal extends React.Component {
   static propTypes = {
@@ -14,7 +16,33 @@ class Personal extends React.Component {
     setChanges: PropTypes.func
   }
 
-  componentWillMount() {
+  getChildren(group) {
+    let fields = [];
+    for (var key in group.values) {
+      if (key == 1) {
+        continue;
+      }
+
+      fields.push(
+        <Field 
+          key={key}
+          checked={group.values[key].checked}
+          name={group.values[key].name}
+          values={group.values[key].values}
+        />
+      );
+    }
+
+
+    if (!fields.length) {
+      return <div className={styles.noData}>Нет данных</div>;
+    }
+
+    return (
+      <div>
+        {fields}
+      </div>
+    );
   }
 
   renderAccordion() {
@@ -27,25 +55,24 @@ class Personal extends React.Component {
       );
     }
 
-    return fields
+    return fields;
   }
 
   render() {
+    let data = [];
 
-      // onClick={this.props.onItemClick}
-      // id={item.id}
-      // title={item.title}
-      // opened={this.state.openedId === item.id}
+    for (var key in this.props.cards) {
+      data.push({
+        id: key,
+        title: this.props.cards[key].name,
+        children: this.getChildren(this.props.cards[key])
+      });
+    }
 
-    let data = [
-      { id: 'id1', title: 'title 1', children: 'children1' },
-      { id: 'id2', title: 'title 2', children: 'children2' }
-    ];
-    
     return (
-      <Accordion data={data} />
-      //   {this.renderAccordion()}
-      // </div>
+      <div className={styles.accordionCont}>
+        <Accordion data={data} />
+      </div>
     );
   }
 }

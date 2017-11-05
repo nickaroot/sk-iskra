@@ -1,0 +1,19 @@
+.field {
+	display: flex;
+	margin: 5px 50px 5px 20px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid grey;
+	font-family: Roboto, sans-serif;
+	margin-left: 50px;
+}
+
+.name {
+	border-right: 1px solid grey;
+	padding-right: 10px;
+	padding-top: 5px;
+}
+
+.val {
+	padding-top: 5px;
+	margin-left: 10px;
+}
