@@ -8,6 +8,7 @@ export default class Field extends React.Component {
     return (
       <div className={styles.field}>
       	<Checkbox
+      		checked={this.props.checked}
       		label=""
       		style={{
       			width: '30px'

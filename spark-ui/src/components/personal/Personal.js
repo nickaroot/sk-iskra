@@ -26,6 +26,7 @@ class Personal extends React.Component {
       fields.push(
         <Field 
           key={key}
+          checked={group.values[key].checked}
           name={group.values[key].name}
           values={group.values[key].values}
         />
