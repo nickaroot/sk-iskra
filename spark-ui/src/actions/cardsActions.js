@@ -39,19 +39,35 @@ export function getCards(id) {
 }
 
 
-export function setChanges(data) {
-  return (dispatch) => {
+export function setChanges(isChecked, fieldData) {
+  return (dispatch, getState) => {
     dispatch({
       type: SET_CHANGES_START
     });
+    
+    const state = getState();
 
-    return axios.post(
-      'http://bb-mobile.ru/temp_programmer/set_changes.php',
-      data
-    )
+    return axios({
+      method: 'post',
+      url: 'http://bb-mobile.ru/temp_programmer/set_changes.php',
+      crossDomain: true,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: {
+        'uid': '1',
+        'values': {
+          'checked': isChecked,
+          'table_id': fieldData.sectionId,
+          'row_id': fieldData.fieldId
+        }
+      }
+    })
       .then(() => {
         dispatch({
-          type: SET_CHANGES_FINISHED
+          type: SET_CHANGES_FINISHED,
+          isChecked: isChecked,
+          fieldData: fieldData
         });
       })
       .catch((error) => {

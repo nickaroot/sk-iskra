@@ -13,10 +13,16 @@ class Personal extends React.Component {
     // eslint-disable-next-line react/forbid-prop-types
     cards: PropTypes.object,
     // eslint-disable-next-line react/no-unused-prop-types
-    setChanges: PropTypes.func
+    actions: PropTypes.shape({
+      setChanges: PropTypes.func
+    })
   }
 
-  getChildren(group) {
+  onChecked = (isChecked, fieldData) => {
+    this.props.actions.setChanges(isChecked, fieldData);
+  }
+
+  getChildren(group, sectionId) {
     let fields = [];
     for (var key in group.values) {
       if (key == 1) {
@@ -24,15 +30,17 @@ class Personal extends React.Component {
       }
 
       fields.push(
-        <Field 
+        <Field
+          sectionId={sectionId}
+          fieldId={key}
           key={key}
           checked={group.values[key].checked}
           name={group.values[key].name}
           values={group.values[key].values}
+          onChecked={this.onChecked}
         />
       );
     }
-
 
     if (!fields.length) {
       return <div className={styles.noData}>Нет данных</div>;
@@ -65,7 +73,7 @@ class Personal extends React.Component {
       data.push({
         id: key,
         title: this.props.cards[key].name,
-        children: this.getChildren(this.props.cards[key])
+        children: this.getChildren(this.props.cards[key], key)
       });
     }
 
