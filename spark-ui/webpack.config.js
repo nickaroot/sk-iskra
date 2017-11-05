@@ -20,7 +20,8 @@ const config = {
     contentBase: resolve(__dirname, './src'),
     publicPath: '/',
     historyApiFallback: true,
-    port: 9010
+    port: 9010,
+    hot: true
   },
 
   module: {
