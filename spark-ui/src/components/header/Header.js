@@ -6,9 +6,11 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className={styles.header}>
-        <img />
-        <div className={styles.name}>Иванов Иван</div>
-        <div className={styles.age}>Возраст: 34</div>
+        <div className={styles.logo}>
+        	<div className={styles.logoPicture}></div>
+        </div>
+        <div className={styles.name}><p>Иванов Иван Николаевич</p></div>
+        <div className={styles.age}><p>Возраст: 34</p></div>
       </div>
     );
   }

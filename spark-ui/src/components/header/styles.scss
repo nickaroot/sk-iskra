@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.header {
+	min-width: 800px;
+	height: 70px;
+	border-bottom: 3px solid #0070c0; 
+}
+
+.header > div {
+	float: left;
+	color: #333333;
+}
+
+.name {
+	padding-top: 23px;
+	display: inline-block;
+	text-align: center;
+	width: 50%;
+	font-size: 20px;
+	font-family: "Roboto";
+}
+
+.age {
+	font-size: 20px;
+	padding-top: 23px;
+	display: inline-block;
+	text-align: center;
+	width: 25%;
+	font-family: "Roboto";
+}
+
+.logo {
+	width: 25%;
+	background-color: white;
+}
+
+.logoPicture {
+	width: 153px;
+	height: 64px;
+	background-image: url('./logo.jpg');
+}
