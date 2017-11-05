@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    const id = this.props.match.params.id;
+    const id = '1'; //this.props.match.params.id;
     if (!id) {
       this.props.history.push('/auth');
     }
@@ -33,15 +33,31 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header
+          lastName={this.props.user.lastName}
+          firstName={this.props.user.firstName}
+          secondName={this.props.user.secondName}
+          birthDate={this.props.user.birthDate}
+        />
         <Nav />
       </div>
     );
   }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
+  let values = Object.values(state.cards.data);
+  let user = {};
+
+  if (values.length) {
+    user.lastName = state.cards.data['1'].values[2].values[0];
+    user.firstName = state.cards.data['1'].values[3].values[0];
+    user.secondName = state.cards.data['1'].values[4].values[0];
+    user.birthDate = state.cards.data['1'].values[5].values[0];
+  }
+
   return {
+    user
   };
 };
 

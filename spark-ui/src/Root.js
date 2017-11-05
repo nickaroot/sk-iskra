@@ -11,6 +11,8 @@ import store from './store';
 import App from './containers/App';
 import Auth from './containers/Auth';
 
+///user/:id
+
 export default class Root extends React.Component {
   render() {
     return (
@@ -18,7 +20,7 @@ export default class Root extends React.Component {
         <MuiThemeProvider>
           <Router>
             <div>
-              <Route path="/user/:id" component={App} />
+              <Route path="*" component={App} />
               <Route path="/auth" component={Auth} />
             </div>
           </Router>
