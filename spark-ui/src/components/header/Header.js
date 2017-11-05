@@ -30,7 +30,7 @@ export default class Header extends React.Component {
       return null;
     }
 
-    let bDateArr = birthDate.split('/');
+    let bDateArr = birthDate.split('.');
     let age = this.calculateAge(bDateArr[0], bDateArr[1], bDateArr[2]);
 
     return (
