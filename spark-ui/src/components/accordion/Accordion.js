@@ -11,9 +11,15 @@ export default class Accordion extends React.Component {
   }
 
   onItemClick = (id) => {
-    this.setState({
-      openedId: id
-    });
+    if (this.state.openedId === id) {
+      this.setState({
+        openedId: null
+      });  
+    } else {
+      this.setState({
+        openedId: id
+      });
+    }
   }
 
   render() {
